@@ -3,10 +3,10 @@
 </script>
 
 <template>
-  <main>
-    <div class="MainContent">
-      <h1>Hello World!</h1>
-    </div>
-  </main>
+    <main>
+        <div class="MainContent">
+            <h1>Hello World!</h1>
+        </div>
+    </main>
 </template>
 <style scoped></style>
