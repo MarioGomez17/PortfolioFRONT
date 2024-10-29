@@ -1,9 +1,15 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+//import { RouterLink, RouterView } from 'vue-router'
+//import HelloWorld from './components/HelloWorld.vue'
+//import BackgroundImageComponent from './components/BackgroundImageComponent.vue';
+import ProfileImageComponent from './components/NavigationComponents/ProfileImageComponent.vue';
+import ContacComponent from './components/ContactComponents/ContacComponent.vue';
+import NavigationComponent from './components/NavigationComponents/NavigationComponent.vue';
+import LoginButtonComponent from './components/SessionIcons/LogInButtonComponent.vue';
 </script>
 
 <template>
+  <!--
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
@@ -16,12 +22,83 @@ import HelloWorld from './components/HelloWorld.vue'
       </nav>
     </div>
   </header>
-
-  <RouterView />
+  
+-->
+  <div class="MainContenApp">
+    <div class="Content">
+      <nav class="NavigationBar">
+        <RouterLink to="/" class="NavigationLink">
+          <ProfileImageComponent />
+        </RouterLink>
+        <RouterLink to="/About" class="NavigationLink">
+          <NavigationComponent TextURL="About me" />
+        </RouterLink>
+        <RouterLink to="/Education" class="NavigationLink">
+          <NavigationComponent TextURL="Education" />
+        </RouterLink>
+        <RouterLink to="/Skills" class="NavigationLink">
+          <NavigationComponent TextURL="Skills" />
+        </RouterLink>
+        <RouterLink to="/Technologies" class="NavigationLink">
+          <NavigationComponent TextURL="Technologies" />
+        </RouterLink>
+        <RouterLink to="/Projects" class="NavigationLink">
+          <NavigationComponent TextURL="Projects" />
+        </RouterLink>
+        <RouterLink to="/LogIn" class="NavigationLink">
+          <LoginButtonComponent />
+        </RouterLink>
+      </nav>
+      <RouterView />
+    </div>
+    <div class="DivBackgroundImage">
+      <ContacComponent />
+    </div>
+  </div>
 </template>
 
 <style scoped>
-header {
+@import './assets/base.css';
+
+.MainContenApp {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to left, var(--FirstBackgroundColor), var(--SecondBackgroundColor));
+  overflow: hidden;
+}
+
+.Content {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.DivBackgroundImage {
+  display: flex;
+  height: 100%;
+  width: 30%;
+}
+
+.NavigationBar {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 10px 0 0 10px;
+}
+
+.NavigationLink {
+  text-decoration: none;
+}
+
+/*header {
   line-height: 1.5;
   max-height: 100vh;
 }
@@ -81,5 +158,5 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
-}
+}*/
 </style>
