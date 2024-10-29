@@ -1,10 +1,10 @@
 <template>
-    <span class="TextElement">{{ Propos.TextURL }}</span>
+    <span class="TextElement">{{ Props.TextURL }}</span>
 </template>
 
 <script setup>
 
-const Propos = defineProps({
+const Props = defineProps({
     TextURL: String
 })
 

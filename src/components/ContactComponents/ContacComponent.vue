@@ -1,26 +1,63 @@
 <template>
     <div class="Buttons">
         <BackgroundImageComponent class="MainButton" />
-        <a class="EmailButton Button" href="https://mail.google.com/mail/?view=cm&fs=1&to=mg441236@gmail.com"
-            target="_blank">
+        <!-- Email Component -->
+        <a class="EmailButton Button" :href="'https://mail.google.com/mail/?view=cm&fs=1&to=' + Email_Developer"
+            target="_blank" v-if="Email_Developer != ''">
             <EmailIcon class="IconEmailButton" />
-            <span class="TextEmailButton">mg41236@gmail.com</span>
+            <span class="TextEmailButton" v-if="Email_Developer != ''">{{ Email_Developer }}</span>
+            <span class="TextEmailButton" v-else>Loading...</span>
         </a>
-        <a class="GitHubButton Button" href="https://github.com/MarioGomez17" target="_blank">
+        <a class="EmailButton Button" href="#" target="_blank" v-else>
+            <EmailIcon class="IconEmailButton" />
+            <span class="TextEmailButton" v-if="Email_Developer != ''">{{ Email_Developer }}</span>
+            <span class="TextEmailButton" v-else>Loading...</span>
+        </a>
+        <!-- GitHub Component -->
+        <a class="GitHubButton Button" :href="GitHubUrl_Developer" target="_blank" v-if="GitHubUrl_Developer != ''">
             <GitHubIcon class="IconGitHubButton" />
-            <span class="TextGitHubButton">MarioGomez17</span>
+            <span class="TextGitHubButton" v-if="GitHubName_Developer != ''">{{ GitHubName_Developer }}</span>
+            <span class="TextGitHubButton" v-else>Loading...</span>
         </a>
-        <a class="LinkedInButton Button" href="https://www.linkedin.com/in/mario-gomez-33268b2b2" target="_blank">
+        <a class="GitHubButton Button" href="#" target="_blank" v-else>
+            <GitHubIcon class="IconGitHubButton" />
+            <span class="TextGitHubButton" v-if="GitHubName_Developer">{{ GitHubName_Developer }}</span>
+            <span class="TextGitHubButton" v-else>Loading...</span>
+        </a>
+        <!-- LinkedIn Component -->
+        <a class="LinkedInButton Button" :href="LinkedinUrl_Developer" target="_blank"
+            v-if="LinkedinUrl_Developer != ''">
             <LinkedInIcon class="IconLinkedInButton" />
-            <span class="TextLinkedInButton">Mario_Gomez</span>
+            <span class="TextLinkedInButton" v-if="LinkedinName_Developer != ''">{{ LinkedinName_Developer }}</span>
+            <span class="TextLinkedInButton" v-else>Loading...</span>
         </a>
-        <a class="LocationButton Button" href="https://maps.app.goo.gl/rARUH4VpRCeuQx2u8" target="_blank">
+        <a class="LinkedInButton Button" href="#" target="_blank" v-else>
+            <LinkedInIcon class="IconLinkedInButton" />
+            <span class="TextLinkedInButton" v-if="LinkedinName_Developer != ''">{{ LinkedinName_Developer }}</span>
+            <span class="TextLinkedInButton" v-else>Loading...</span>
+        </a>
+        <!-- Location Component -->
+        <a class="LocationButton Button" :href="UrlCity_Developer" target="_blank" v-if="UrlCity_Developer != ''">
             <LocationIcon class="IconLocationButton" />
-            <span class="TextLocationButton">Colombia</span>
+            <span class="TextLocationButton" v-if="City_Developer != ''">{{ City_Developer }}</span>
+            <span class="TextLocationButton" v-else>Loading...</span>
         </a>
-        <a class="PhoneButton Button" href="https://wa.me/+573175123608" target="_blank">
+        <a class="LocationButton Button" href="#" target="_blank" v-else>
+            <LocationIcon class="IconLocationButton" />
+            <span class="TextLocationButton" v-if="City_Developer != ''">{{ City_Developer }}</span>
+            <span class="TextLocationButton" v-else>Loading...</span>
+        </a>
+        <!-- Whatsapp Component -->
+        <a class="PhoneButton Button" :href="'https://wa.me/' + Phone_Developer" target="_blank"
+            v-if="Phone_Developer != ''">
             <PhoneIcon class="IconPhoneButton" />
-            <span class="TextPhoneButton">+573175123608</span>
+            <span class="TextPhoneButton" v-if="Phone_Developer != ''">{{ Phone_Developer }}</span>
+            <span class="TextPhoneButton" v-else>Loading...</span>
+        </a>
+        <a class="PhoneButton Button" href="#" target="_blank" v-else>
+            <PhoneIcon class="IconPhoneButton" />
+            <span class="TextPhoneButton" v-if="Phone_Developer != ''">{{ Phone_Developer }}</span>
+            <span class="TextPhoneButton" v-else>Loading...</span>
         </a>
     </div>
 </template>
@@ -32,6 +69,35 @@ import GitHubIcon from '../ContactIcons/GitHubIcon.vue';
 import LinkedInIcon from '../ContactIcons/LinkedInIcon.vue';
 import LocationIcon from '../ContactIcons/LocationIcon.vue';
 import PhoneIcon from '../ContactIcons/PhoneIcon.vue';
+import { ref, onMounted } from 'vue';
+import GetOneDeveloper from '../../Services/DeveloperServices/GetOneDeveloper'
+
+var Developer = null;
+var Email_Developer = ref('');
+var GitHubName_Developer = ref('');
+var GitHubUrl_Developer = ref('');
+var LinkedinName_Developer = ref('');
+var LinkedinUrl_Developer = ref('');
+var Phone_Developer = ref('');
+var City_Developer = ref('');
+var UrlCity_Developer = ref('')
+
+onMounted(async () => {
+    Developer = await GetOneDeveloper(1);
+    Email_Developer.value = Developer.Email_Developer;
+    GitHubName_Developer.value = Developer.GitHubName_Developer;
+    GitHubUrl_Developer.value = Developer.GitHubUrl_Developer;
+    LinkedinName_Developer.value = Developer.LinkedinName_Developer;
+    LinkedinUrl_Developer.value = Developer.LinkedinUrl_Developer;
+    Phone_Developer.value = Developer.Phone_Developer;
+    City_Developer.value = Developer.City_Developer.Name_City;
+    City_Developer.value += ', ';
+    City_Developer.value += Developer.City_Developer.Department_City.Name_Department;
+    City_Developer.value += ', ';
+    City_Developer.value += Developer.City_Developer.Department_City.Country_Department.Name_Country;
+    UrlCity_Developer.value = Developer.City_Developer.UrlMaps_City;
+})
+
 </script>
 
 <style scoped>
@@ -100,17 +166,19 @@ import PhoneIcon from '../ContactIcons/PhoneIcon.vue';
     font-family: var(--Font);
     opacity: 0;
     transition-duration: 0.5s;
+    overflow: hidden;
+    white-space: nowrap;
     transition-property: translate, opcacity;
 }
 
 .EmailButton:hover {
     background: #C5221F;
-    width: 200px;
+    width: 220px;
     border-radius: 40px;
 }
 
 .EmailButton:hover .IconEmailButton {
-    transform: translateX(-70px);
+    transform: translateX(-90px);
 }
 
 .EmailButton:hover .TextEmailButton {
@@ -150,17 +218,19 @@ import PhoneIcon from '../ContactIcons/PhoneIcon.vue';
     font-family: var(--Font);
     opacity: 0;
     transition-duration: 0.5s;
+    overflow: hidden;
+    white-space: nowrap;
     transition-property: translate, opcacity;
 }
 
 .GitHubButton:hover {
     background: var(--Black);
-    width: 200px;
+    width: 220px;
     border-radius: 40px;
 }
 
 .GitHubButton:hover .IconGitHubButton {
-    transform: translateX(-70px);
+    transform: translateX(-90px);
 }
 
 .GitHubButton:hover .TextGitHubButton {
@@ -200,17 +270,19 @@ import PhoneIcon from '../ContactIcons/PhoneIcon.vue';
     font-family: var(--Font);
     opacity: 0;
     transition-duration: 0.5s;
+    overflow: hidden;
+    white-space: nowrap;
     transition-property: translate, opcacity;
 }
 
 .LinkedInButton:hover {
     background: #0077b5;
-    width: 200px;
+    width: 220px;
     border-radius: 40px;
 }
 
 .LinkedInButton:hover .IconLinkedInButton {
-    transform: translateX(-70px);
+    transform: translateX(-90px);
 }
 
 .LinkedInButton:hover .TextLinkedInButton {
@@ -250,17 +322,19 @@ import PhoneIcon from '../ContactIcons/PhoneIcon.vue';
     font-family: var(--Font);
     opacity: 0;
     transition-duration: 0.5s;
+    overflow: hidden;
+    white-space: nowrap;
     transition-property: translate, opcacity;
 }
 
 .LocationButton:hover {
     background: #dda502;
-    width: 200px;
+    width: 220px;
     border-radius: 40px;
 }
 
 .LocationButton:hover .IconLocationButton {
-    transform: translateX(-70px);
+    transform: translateX(-90px);
 }
 
 .LocationButton:hover .TextLocationButton {
@@ -300,17 +374,19 @@ import PhoneIcon from '../ContactIcons/PhoneIcon.vue';
     font-family: var(--Font);
     opacity: 0;
     transition-duration: 0.5s;
+    overflow: hidden;
+    white-space: nowrap;
     transition-property: translate, opcacity;
 }
 
 .PhoneButton:hover {
     background: #00a000;
-    width: 200px;
+    width: 220px;
     border-radius: 40px;
 }
 
 .PhoneButton:hover .IconPhoneButton {
-    transform: translateX(-70px);
+    transform: translateX(-90px);
 }
 
 .PhoneButton:hover .TextPhoneButton {

@@ -14,6 +14,8 @@ const Props = defineProps({
 </script>
 
 <style scoped>
+@import '../../assets/base.css';
+
 @keyframes LoaderAnimation {
     0% {
         clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
@@ -49,7 +51,7 @@ const Props = defineProps({
 }
 
 .DivLogo {
-    width: 150px;
+    width: 100px;
     aspect-ratio: 1;
     border: 5px solid transparent;
     border-radius: 50%;
@@ -57,6 +59,7 @@ const Props = defineProps({
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--FirstColor);
 }
 
 .DivLogo:hover::before {
@@ -64,8 +67,8 @@ const Props = defineProps({
     position: absolute;
     inset: -5px;
     border-radius: 50%;
-    border: 5px solid #87CEEB;
-    animation: LoaderAnimation .3s 1 linear, BlurAnimation .3s forwards .3s;
+    border: 5px solid var(--HighlightColor);
+    animation: LoaderAnimation .2s 1 linear, BlurAnimation .2s forwards .2s;
 }
 
 .Logo {
