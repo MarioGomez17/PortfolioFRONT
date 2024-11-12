@@ -5,27 +5,43 @@ import GetOneDeveloper from '@/Services/DeveloperServices/GetOneDeveloper';
 import SortTechnologies from '@/Services/TechnologyServices/SortTechnologies';
 
 var Developer = null;
-const SkillsTechnologies = ref([]);;
+const ProgrammingLanguagesTechnologies = ref([]);;
 
 onMounted(async () => {
     Developer = await GetOneDeveloper(1)
-    SkillsTechnologies.value = SortTechnologies(Developer.Technologies_Developer)
+    ProgrammingLanguagesTechnologies.value = SortTechnologies(Developer.ProgrammingLanguages_Developer, Developer.Technologies_Developer)
 })
-
 </script>
 
 <template>
-    <main class="MainContent">
-        <div class="DivMainContent">
-            <div v-for="(Skill, Key) in SkillsTechnologies" :key="Skill.value" class="DivDivison">
-                <h3 class="TitleDivison">{{ Key }}</h3>
-                <div class="DivTechnologies">
-                    <LogoComponent v-for="Technology in Skill" :key="Technology.Id_Technology"
-                        :ImageRoute="Technology.Logo_Technology" :ImageAlt="Technology.Name_Technology" />
+    <div class="MainContent">
+        <div class="DivGridProgrammingLanguageTechnologies"
+            v-for="(ProgrammingLanguageTechnologies) in ProgrammingLanguagesTechnologies"
+            :key="ProgrammingLanguageTechnologies.ProgrammingLanguage.Id_ProgrammingLanguage">
+            <div class="DivProgrammingLanguage">
+                <div class="ProgrammingLanguageTitle">
+                    <h3 class="TitleTechnologyProgrammingLanguage">
+                        {{ ProgrammingLanguageTechnologies.ProgrammingLanguage.Name_ProgrammingLanguage }}
+                    </h3>
+                    <LogoComponent
+                        :ImageRoute="ProgrammingLanguageTechnologies.ProgrammingLanguage.Logo_ProgrammingLanguage"
+                        :ImageAlt="'Logo de ' + ProgrammingLanguageTechnologies.ProgrammingLanguage.Name_ProgrammingLanguage">
+                    </LogoComponent>
+                </div>
+            </div>
+            <div class="DivTechnologiesProgrammingLanguage">
+                <div v-for="(Technology) in ProgrammingLanguageTechnologies.Technologies"
+                    :key="Technology.Id_Technology" class="DivTechnologyProgrammingLanguage">
+                    <h3 class="TitleTechnologyProgrammingLanguage">
+                        {{ Technology.Name_Technology }}
+                    </h3>
+                    <LogoComponent :ImageRoute="Technology.Logo_Technology"
+                        :ImageAlt="'Logo de ' + Technology.Name_Technology">
+                    </LogoComponent>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 </template>
 
 <style scoped>
@@ -35,44 +51,60 @@ onMounted(async () => {
     width: 100%;
     height: 100%;
     overflow: auto;
-
-}
-
-.DivMainContent {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    overflow: auto;
     scrollbar-width: none;
+    margin-top: 50px;
 }
 
-.DivDivison {
+.DivGridProgrammingLanguageTechnologies {
     width: 100%;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    gap: 100px;
+}
+
+.DivProgrammingLanguage {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.DivTechnologyProgrammingLanguage {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    gap: 15px;
-}
-
-.DivTechnologies {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
+    justify-content: space-around;
+    margin: 20px;
 }
 
-.TitleDivison {
-    font-family: var(--Font);
-    text-transform: uppercase;
-    color: var(--TextColor);
-    font-size: 40px;
-    width: 100%;
+.TitleTechnologyProgrammingLanguage {
+    font-size: 20px;
     text-align: center;
-    margin: 10px 0;
+    margin: 0;
+    margin-bottom: 15px;
+    font-family: var(--Font);
+    font-weight: 500;
+    color: var(--White);
+}
+
+.DivTechnologiesProgrammingLanguage {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
+}
+
+.ProgrammingLanguageTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.Arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
 }
 </style>

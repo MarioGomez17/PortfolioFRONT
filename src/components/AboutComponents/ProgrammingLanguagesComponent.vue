@@ -1,17 +1,19 @@
 <template>
     <div class="InformationDiv">
-        <h3 class="InformationTitle">{{ Props.Title }}</h3>
-        <span class="InformationLink">{{ Props.Contetn }}</span>
+        <h3 class="InformationTitle">{{ Title }}</h3>
+        <ol class="ListProgrammingLanguages">
+            <li v-for="Element in Props.Elements" :key="Element.value" class="InformationListElement">
+                {{ Element.Name_ProgrammingLanguage }}
+            </li>
+        </ol>
     </div>
 </template>
 
 <script setup>
-
 const Props = defineProps({
     Title: String,
-    Contetn: String
+    Elements: Array
 })
-
 </script>
 
 <style scoped>
@@ -33,7 +35,16 @@ const Props = defineProps({
     color: var(--FirstColor);
 }
 
-.InformationLink {
+.ListProgrammingLanguages {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    padding-left: 25px;
+}
+
+.InformationListElement {
     text-decoration: none;
     color: var(--TextColor);
     font-size: 20px;

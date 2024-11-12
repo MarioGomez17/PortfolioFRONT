@@ -1,9 +1,9 @@
 <template>
     <div class="InformationDiv">
         <RouterLink to="/Education" class="InformationTitle">{{ Title }}</RouterLink>
-        <ol>
-            <li v-for="Element in Props.Elements" :key="Element.value" class="InformationLink">
-                {{ Element.DegreeName_Education }} ({{ Element.Academy_Education.Name_Academy }})
+        <ol class="ListEducation">
+            <li v-for="Element in Props.Elements" :key="Element.value" class="InformationListElement">
+                {{ Element.DegreeName_Education }}
             </li>
         </ol>
     </div>
@@ -20,24 +20,33 @@ const Props = defineProps({
 @import '../../assets/base.css';
 
 .InformationDiv {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
+    align-items: flex-start;
     text-transform: uppercase;
     font-family: var(--Font);
 }
 
 .InformationTitle {
-    margin: 15px;
+    margin: 20px 0;
     font-size: 30px;
+    text-align: center;
     font-weight: bold;
     text-decoration: none;
     color: var(--FirstColor);
 }
 
-.InformationLink {
+.ListEducation {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    padding-left: 25px;
+}
+
+.InformationListElement {
     text-decoration: none;
     color: var(--TextColor);
     font-size: 20px;

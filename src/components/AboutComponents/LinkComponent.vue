@@ -17,18 +17,18 @@ const Props = defineProps({
 @import '../../assets/base.css';
 
 .InformationDiv {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
+    align-items: flex-start;
     text-transform: uppercase;
     font-family: var(--Font);
 }
 
 .InformationTitle {
-    margin: 15px;
+    margin: 20px 0;
     font-size: 30px;
+    text-align: center;
     color: var(--FirstColor);
 }
 
