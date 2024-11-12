@@ -5,7 +5,6 @@
 import ProfileImageComponent from './components/NavigationComponents/ProfileImageComponent.vue';
 import ContacComponent from './components/ContactComponents/ContacComponent.vue';
 import NavigationComponent from './components/NavigationComponents/NavigationComponent.vue';
-import LoginButtonComponent from './components/SessionIcons/LogInButtonComponent.vue';
 </script>
 
 <template>
@@ -30,14 +29,14 @@ import LoginButtonComponent from './components/SessionIcons/LogInButtonComponent
         <RouterLink to="/" class="NavigationLink">
           <ProfileImageComponent />
         </RouterLink>
+        <RouterLink to="/" class="NavigationLink">
+          <NavigationComponent TextURL="Home" />
+        </RouterLink>
         <RouterLink to="/About" class="NavigationLink">
           <NavigationComponent TextURL="About me" />
         </RouterLink>
         <RouterLink to="/Education" class="NavigationLink">
           <NavigationComponent TextURL="Education" />
-        </RouterLink>
-        <RouterLink to="/Skills" class="NavigationLink">
-          <NavigationComponent TextURL="Skills" />
         </RouterLink>
         <RouterLink to="/Technologies" class="NavigationLink">
           <NavigationComponent TextURL="Technologies" />
@@ -45,8 +44,8 @@ import LoginButtonComponent from './components/SessionIcons/LogInButtonComponent
         <RouterLink to="/Projects" class="NavigationLink">
           <NavigationComponent TextURL="Projects" />
         </RouterLink>
-        <RouterLink to="/LogIn" class="NavigationLink">
-          <LoginButtonComponent />
+        <RouterLink to="/Experience" class="NavigationLink">
+          <NavigationComponent TextURL="Experience" />
         </RouterLink>
       </nav>
       <RouterView />
