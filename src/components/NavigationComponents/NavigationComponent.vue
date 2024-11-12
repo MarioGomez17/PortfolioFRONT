@@ -22,11 +22,11 @@ const Props = defineProps({
     font-family: var(--Font);
     font-size: 17px;
     text-transform: uppercase;
-    border: 2px solid var(--Black);
+    border: 4px solid var(--Black);
 }
 
 .TextElement:hover {
-    border: 2px solid var(--White);
+    border: 4px solid var(--White);
     box-shadow: 0px 0px 25px 5px var(--BorderColor);
     background-color: transparent;
 }
