@@ -42,7 +42,7 @@ import NavigationComponent from './components/NavigationComponents/NavigationCom
           <NavigationComponent TextURL="Technologies" />
         </RouterLink>
         <RouterLink to="/Projects" class="NavigationLink">
-          <NavigationComponent TextURL="Projects" />
+          <NavigationComponent TextURL="Personal Projects" />
         </RouterLink>
         <RouterLink to="/Experience" class="NavigationLink">
           <NavigationComponent TextURL="Experience" />
