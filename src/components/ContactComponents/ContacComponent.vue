@@ -64,11 +64,11 @@
 
 <script setup>
 import BackgroundImageComponent from './BackgroundImageComponent.vue';
-import EmailIcon from '../ContactIcons/EmailIcon.vue';
-import GitHubIcon from '../ContactIcons/GitHubIcon.vue';
-import LinkedInIcon from '../ContactIcons/LinkedInIcon.vue';
-import LocationIcon from '../ContactIcons/LocationIcon.vue';
-import PhoneIcon from '../ContactIcons/PhoneIcon.vue';
+import EmailIcon from '../Icons/EmailIcon.vue';
+import GitHubIcon from '../Icons/GitHubIcon.vue';
+import LinkedInIcon from '../Icons/LinkedInIcon.vue';
+import LocationIcon from '../Icons/LocationIcon.vue';
+import PhoneIcon from '../Icons/PhoneIcon.vue';
 import { ref, onMounted } from 'vue';
 import GetOneDeveloper from '../../Services/DeveloperServices/GetOneDeveloper'
 
@@ -155,6 +155,8 @@ onMounted(async () => {
 .IconEmailButton {
     position: relative;
     transition: .5s;
+    width: 30px;
+    height: 30px;
 }
 
 .TextEmailButton {
@@ -207,6 +209,8 @@ onMounted(async () => {
 .IconGitHubButton {
     position: relative;
     transition: .5s;
+    width: 30px;
+    height: 30px;
 }
 
 .TextGitHubButton {
@@ -259,6 +263,8 @@ onMounted(async () => {
 .IconLinkedInButton {
     position: relative;
     transition: .5s;
+    width: 30px;
+    height: 30px;
 }
 
 .TextLinkedInButton {
@@ -311,6 +317,8 @@ onMounted(async () => {
 .IconLocationButton {
     position: relative;
     transition: .5s;
+    width: 30px;
+    height: 30px;
 }
 
 .TextLocationButton {
@@ -363,6 +371,8 @@ onMounted(async () => {
 .IconPhoneButton {
     position: relative;
     transition: .5s;
+    width: 30px;
+    height: 30px;
 }
 
 .TextPhoneButton {

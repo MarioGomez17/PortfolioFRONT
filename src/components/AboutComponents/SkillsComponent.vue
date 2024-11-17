@@ -1,6 +1,9 @@
 <template>
     <div class="InformationDiv">
-        <RouterLink to="/Skills" class="InformationTitle">{{ Title }}</RouterLink>
+        <RouterLink to="/Skills" class="InformationTitle">
+            {{ Props.Title }}
+            <component :is="Props.Icon" class="Icon" />
+        </RouterLink>
         <ol class="ListSkill">
             <li v-for="Element in Props.Elements" :key="Element.value" class="InformationListElement">
                 {{ Element.Name_Skill }}
@@ -12,7 +15,8 @@
 <script setup>
 const Props = defineProps({
     Title: String,
-    Elements: Array
+    Elements: Array,
+    Icon: Object
 })
 </script>
 
@@ -35,6 +39,16 @@ const Props = defineProps({
     font-weight: bold;
     text-decoration: none;
     color: var(--FirstColor);
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.Icon {
+    width: 40px;
+    height: 40px;
+    stroke-width: 2;
+    stroke: var(--FirstColor);
 }
 
 .ListSkill {

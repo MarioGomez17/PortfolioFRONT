@@ -1,6 +1,9 @@
 <template>
     <div class="InformationDiv">
-        <h3 class="InformationTitle">{{ Props.Title }}</h3>
+        <h3 class="InformationTitle">
+            {{ Props.Title }}
+            <component :is="Props.Icon" class="Icon" />
+        </h3>
         <span class="InformationLink">{{ Props.Contetn }}</span>
     </div>
 </template>
@@ -9,7 +12,8 @@
 
 const Props = defineProps({
     Title: String,
-    Contetn: String
+    Contetn: String,
+    Icon: Object
 })
 
 </script>
@@ -31,6 +35,16 @@ const Props = defineProps({
     font-size: 30px;
     text-align: center;
     color: var(--FirstColor);
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.Icon {
+    width: 40px;
+    height: 40px;
+    stroke-width: 2;
+    stroke: var(--FirstColor);
 }
 
 .InformationLink {

@@ -1,6 +1,9 @@
 <template>
     <div class="InformationDiv">
-        <h3 class="InformationTitle">{{ Title }}</h3>
+        <h3 class="InformationTitle">
+            {{ Props.Title }}
+            <component :is="Props.Icon" class="Icon" />
+        </h3>
         <ol class="ListProgrammingLanguages">
             <li v-for="Element in Props.Elements" :key="Element.value" class="InformationListElement">
                 {{ Element.Name_ProgrammingLanguage }}
@@ -12,7 +15,8 @@
 <script setup>
 const Props = defineProps({
     Title: String,
-    Elements: Array
+    Elements: Array,
+    Icon: Object
 })
 </script>
 
@@ -33,6 +37,16 @@ const Props = defineProps({
     font-size: 30px;
     text-align: center;
     color: var(--FirstColor);
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.Icon {
+    width: 40px;
+    height: 40px;
+    stroke-width: 2;
+    stroke: var(--FirstColor);
 }
 
 .ListProgrammingLanguages {

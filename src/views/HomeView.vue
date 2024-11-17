@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import GetOneDeveloper from '@/Services/DeveloperServices/GetOneDeveloper';
-
+import WorlIcon from '@/components/Icons/WorlIcon.vue';
 var Developer = ref({});
 
 onMounted(async () => {
@@ -13,10 +13,15 @@ onMounted(async () => {
 <template>
   <div class="MainContent">
     <div class="DivMainTitle">
-      <h1 class="MainTitle">{{ Developer.Name_Developer }} {{ Developer.LastName_Developer }}</h1>
+      <h1 class="MainTitle">
+        {{ Developer.Name_Developer }} {{ Developer.LastName_Developer }}
+        <WorlIcon class="WorldIcon"></WorlIcon>
+      </h1>
     </div>
     <div class="DivSecondTitle">
-      <h3 class="SecondTitle">Full Stack Developer</h3>
+      <h3 class="SecondTitle">
+        Full Stack Developer
+      </h3>
     </div>
     <div class="DivDescription">
       <p class="Description">
@@ -50,6 +55,15 @@ onMounted(async () => {
   font-weight: bold;
   color: var(--TextColor);
   transition: text-shadow 0.5s ease;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.WorldIcon {
+  width: 110px;
+  height: 110px;
+  stroke: var(--FirstColor);
 }
 
 .MainTitle:hover {
@@ -61,6 +75,9 @@ onMounted(async () => {
   font-size: 60px;
   font-weight: bold;
   color: var(--FirstColor);
+  display: flex;
+  align-items: center;
+  gap: 30px;
 }
 
 .SecondTitle:hover {

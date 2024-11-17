@@ -1,14 +1,23 @@
 <template>
   <div class="AboutContent">
-    <AboutComponent Title="Name" :Contetn="Name_Developer"></AboutComponent>
-    <AboutComponent Title="Email" :Contetn="Email_Developer"></AboutComponent>
-    <LinkComponent Title="LinkedIn" :Contetn="LinkedinName_Developer" :Url="LinkedInUrl_Developer"></LinkComponent>
-    <LinkComponent Title="GitHub" :Contetn="GitHubName_Developer" :Url="GitHubUrl_Developer"></LinkComponent>
-    <AboutComponent Title="Location" :Contetn="City_Developer"></AboutComponent>
-    <LanguagesComponent Title="Languages" :Elements="Languages_Developer"></LanguagesComponent>
-    <EducationsComponet Title="Education" :Elements="Education_Developer"></EducationsComponet>
-    <SkillsComponent Title="Skills" :Elements="Skills_Developer"></SkillsComponent>
-    <ProgrammingLanguagesComponent Title="Programming Langugages" :Elements="ProgrammingLanguages_Developer">
+    <AboutComponent Title="Name" :Contetn="Name_Developer" :Icon="NameIcon">
+    </AboutComponent>
+    <AboutComponent Title="Email" :Contetn="Email_Developer" :Icon="EmailIcon">
+    </AboutComponent>
+    <LinkComponent Title="LinkedIn" :Contetn="LinkedinName_Developer" :Url="LinkedInUrl_Developer" :Icon="LinkedInIcon">
+    </LinkComponent>
+    <LinkComponent Title="GitHub" :Contetn="GitHubName_Developer" :Url="GitHubUrl_Developer" :Icon="GitHubIcon">
+    </LinkComponent>
+    <AboutComponent Title="Location" :Contetn="City_Developer" :Icon="LocationIcon">
+    </AboutComponent>
+    <LanguagesComponent Title="Languages" :Elements="Languages_Developer" :Icon="LanguageIcon">
+    </LanguagesComponent>
+    <EducationsComponet Title="Education" :Elements="Education_Developer" :Icon="EducationIcon">
+    </EducationsComponet>
+    <SkillsComponent Title="Skills" :Elements="Skills_Developer" :Icon="SkillIcon">
+    </SkillsComponent>
+    <ProgrammingLanguagesComponent Title="Programming Langugages" :Elements="ProgrammingLanguages_Developer"
+      :Icon="ProgrammingLanguageIcon">
     </ProgrammingLanguagesComponent>
   </div>
 </template>
@@ -21,7 +30,16 @@ import SkillsComponent from '@/components/AboutComponents/SkillsComponent.vue';
 import LanguagesComponent from '@/components/AboutComponents/LanguagesComponent.vue';
 import EducationsComponet from '@/components/AboutComponents/EducationsComponet.vue';
 import ProgrammingLanguagesComponent from '@/components/AboutComponents/ProgrammingLanguagesComponent.vue';
-import GetOneDeveloper from '../Services/DeveloperServices/GetOneDeveloper'
+import GetOneDeveloper from '../Services/DeveloperServices/GetOneDeveloper';
+import NameIcon from '@/components/Icons/NameIcon.vue';
+import EmailIcon from '@/components/Icons/EmailIcon.vue';
+import LinkedInIcon from '@/components/Icons/LinkedInIcon.vue';
+import GitHubIcon from '@/components/Icons/GitHubIcon.vue';
+import LocationIcon from '@/components/Icons/LocationIcon.vue';
+import LanguageIcon from '@/components/Icons/LanguageIcon.vue';
+import EducationIcon from '@/components/Icons/EducationIcon.vue';
+import SkillIcon from '@/components/Icons/SkillIcon.vue';
+import ProgrammingLanguageIcon from '@/components/Icons/ProgrammingLanguageIcon.vue';
 
 var Developer = null;
 var Name_Developer = ref('')
