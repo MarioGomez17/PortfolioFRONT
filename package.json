@@ -8,7 +8,10 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@tabler/icons-vue": "^3.31.0",
     "core-js": "^3.8.3",
+    "pinia": "^3.0.2",
+    "pinia-plugin-persistedstate": "^4.2.0",
     "portfolio_project_front": "file:",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3"
