@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Geologica:wght@100..900&display=swap");
+
+:root {
+  --MainFont: "Afacad Flux", sans-serif;
+  --FirsColor: #390155;
+  --SecondColor: #a356cc;
+  --ThirdColor: #10947e;
+  --FourthColor: #2bf9c5;
+  --FifthColor: #fefefe;
+  --SixthColor: #171616;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: var(--MainFont);
+  text-transform: uppercase;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  background-color: var(--FirsColor);
+  transition: 0.3s linear;
+}
+
+body.LigthTheme {
+  --FirsColor: #390155;
+  --SecondColor: #a356cc;
+  --ThirdColor: #10947e;
+  --FourthColor: #2bf9c5;
+  --FifthColor: #fefefe;
+  --SixthColor: #171616;
+}
