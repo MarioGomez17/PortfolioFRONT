@@ -12,7 +12,7 @@
     </header>
 </template>
 
-<script setup>
+<script setup lang="ts">
 var name = 'Mario Gómez';
 var job = 'web developer';
 </script>

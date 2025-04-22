@@ -11,7 +11,7 @@
     <ContactLinksComponent />
 </template>
 
-<script setup>
+<script setup lang="ts">
 import AsideComponent from '@/features/layout/AsideComponent.vue';
 import ContactLinksComponent from '@/features/layout/ContactLinksComponent.vue';
 import FooterComponent from '@/features/layout/FooterComponent.vue';

@@ -11,12 +11,11 @@
     </aside>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import CollapseButtonComponent from './CollapseButtonComponent.vue';
 import HeaderComponent from './HeaderComponent.vue';
 import NavigationComponent from './NavigationComponent.vue';
 import ThemeButtonComponent from './ThemeButtonComponent.vue';
-
 </script>
 
 <style scoped>

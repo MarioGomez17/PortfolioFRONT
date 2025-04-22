@@ -5,7 +5,7 @@
     </button>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { IconSun } from '@tabler/icons-vue';
 import { IconMoon } from '@tabler/icons-vue';
 import { ref } from 'vue';

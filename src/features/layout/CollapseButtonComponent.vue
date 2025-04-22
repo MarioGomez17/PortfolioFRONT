@@ -4,7 +4,7 @@
     </button>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { IconChevronsLeft } from '@tabler/icons-vue';
 
 const Collapse = () => {
@@ -13,7 +13,6 @@ const Collapse = () => {
         ASIDE_COMPONENT.classList.toggle('AsideComponentCollapsed');
     }
 }
-
 </script>
 
 <style scoped>

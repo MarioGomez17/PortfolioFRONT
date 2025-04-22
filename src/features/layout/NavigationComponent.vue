@@ -56,7 +56,7 @@
     </nav>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { IconHome } from '@tabler/icons-vue';
 import { IconUserCircle } from '@tabler/icons-vue';
 import { IconSchool } from '@tabler/icons-vue';

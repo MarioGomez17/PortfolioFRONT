@@ -6,8 +6,8 @@
     </footer>
 </template>
 
-<script lang="ts" setup>
-var currentYear: number = new Date().getFullYear();
+<script setup lang="ts">
+var currentYear = new Date().getFullYear();
 var author = "Mario Gómez";
 </script>
 

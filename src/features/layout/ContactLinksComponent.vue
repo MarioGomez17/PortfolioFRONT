@@ -1,32 +1,32 @@
 <template>
     <div class="Buttons">
-        <a class="Button LinkedInButton" v-if="!Loading && ErrorMessage == null" :href="Developer.LinkedinUrl_Developer"
-            target="_blank" rel="noopener noreferrer">
+        <a class="Button LinkedInButton" v-if="!Loading && ErrorMessage == null"
+            :href="Developer!.LinkedinUrl_Developer" target="_blank" rel="noopener noreferrer">
             <IconBrandLinkedin class="ButtonIcon" />
             <div class="LinkTooltip LinkedInTooltip">
-                {{ Developer.LinkedinName_Developer }}
+                {{ Developer!.LinkedinName_Developer }}
             </div>
         </a>
-        <a class="Button GitHubButton" v-if="!Loading && ErrorMessage == null" :href="Developer.GitHubUrl_Developer"
+        <a class="Button GitHubButton" v-if="!Loading && ErrorMessage == null" :href="Developer!.GitHubUrl_Developer"
             target="_blank" rel="noopener noreferrer">
             <IconBrandGithub class="ButtonIcon" />
             <div class="LinkTooltip GitHubTooltip">
-                {{ Developer.GitHubName_Developer }}
+                {{ Developer!.GitHubName_Developer }}
             </div>
         </a>
         <a class="Button EmailButton" v-if="!Loading && ErrorMessage == null"
-            :href="`https://mail.google.com/mail/?view=cm&fs=1&to=${Developer.Email_Developer}`" target="_blank"
+            :href="`https://mail.google.com/mail/?view=cm&fs=1&to=${Developer!.Email_Developer}`" target="_blank"
             rel="noopener noreferrer">
             <IconMail class="ButtonIcon" />
             <div class="LinkTooltip EmailTooltip">
-                {{ Developer.Email_Developer }}
+                {{ Developer!.Email_Developer }}
             </div>
         </a>
         <img src="@/assets/images/contact_links.webp" class="ContactLinksImage" />
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useDeveloperStore } from '@/stores/DeveloperStore';
 import { storeToRefs } from 'pinia';
 import { IconBrandGithub } from '@tabler/icons-vue';
