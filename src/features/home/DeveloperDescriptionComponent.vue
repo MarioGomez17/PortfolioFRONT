@@ -5,9 +5,9 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
 
-const PROPS = defineProps({
-    Description_Developer: String
-});
+const PROPS = defineProps<{
+    Description_Developer: string
+}>();
 </script>
 
 <style scoped>
