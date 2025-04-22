@@ -1,9 +1,10 @@
 <template>
-    <DeveloperNameComponent v-if="Loading" Name_Developer="Loading..." />
-    <DeveloperNameComponent v-else-if="ErrorMessage" Name_Developer="Error"
-        LastName_Developer="Error fetching information" />
+    <DeveloperNameComponent v-if="Loading" Name_Developer="Loading..." LastName_Developer=""
+        Job_Developer="Loading..." />
+    <DeveloperNameComponent v-else-if="ErrorMessage" Name_Developer="Error" LastName_Developer=""
+        Job_Developer="Error fetching information" />
     <DeveloperNameComponent v-else :Name_Developer="Developer!.Name_Developer"
-        :LastName_Developer="Developer!.LastName_Developer" />
+        :LastName_Developer="Developer!.LastName_Developer" Job_Developer="Web Developer" />
     <DeveloperDescriptionComponent v-if="Loading" Description_Developer="Loading..." />
     <DeveloperDescriptionComponent v-else-if="ErrorMessage" :Description_Developer="ErrorMessage" />
     <DeveloperDescriptionComponent v-else :Description_Developer="Developer!.Description_Developer" />

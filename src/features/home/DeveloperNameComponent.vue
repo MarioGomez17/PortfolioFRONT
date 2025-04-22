@@ -2,7 +2,7 @@
     <div class="TitleContainer">
         <div>
             <h1 class="MainTitle">{{ PROPS.Name_Developer }} {{ PROPS.LastName_Developer }}</h1>
-            <h2 class="SecondTitle">Web Developer</h2>
+            <h2 class="SecondTitle">{{ Job_Developer }}</h2>
         </div>
         <IconUserCode class="Icon" />
     </div>
@@ -12,11 +12,11 @@
 import { defineProps } from 'vue';
 import { IconUserCode } from '@tabler/icons-vue';
 
-const PROPS = defineProps({
-    Name_Developer: String,
-    LastName_Developer: String
-});
-
+const PROPS = defineProps<{
+    Name_Developer: string,
+    LastName_Developer: string
+    Job_Developer: string
+}>();
 </script>
 
 <style scoped>
