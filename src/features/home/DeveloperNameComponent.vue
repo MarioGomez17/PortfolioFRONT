@@ -1,8 +1,8 @@
 <template>
     <div class="TitleContainer">
         <div>
-            <h1 class="MainTitle">{{ PROPS.Name_Developer }} {{ PROPS.LastName_Developer }}</h1>
-            <h2 class="SecondTitle">{{ Job_Developer }}</h2>
+            <MainTitleComponent :Title="`${PROPS.Name_Developer} ${PROPS.LastName_Developer}`" />
+            <SecondTitleComponent :Title="Job_Developer" />
         </div>
         <IconUserCode class="Icon" />
     </div>
@@ -11,6 +11,8 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
 import { IconUserCode } from '@tabler/icons-vue';
+import MainTitleComponent from '@/components/MainTitleComponent.vue';
+import SecondTitleComponent from '@/components/SecondTitleComponent.vue';
 
 const PROPS = defineProps<{
     Name_Developer: string,
