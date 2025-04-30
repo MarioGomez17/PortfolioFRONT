@@ -1,21 +1,55 @@
 <template>
-  <DeveloperNameComponent v-if="Loading" Name_Developer="Loading..." LastName_Developer="" Job_Developer="Loading..." />
-  <DeveloperNameComponent v-else-if="ErrorMessage" Name_Developer="Error" LastName_Developer=""
-    Job_Developer="Error fetching information" />
-  <DeveloperNameComponent v-else :Name_Developer="Developer!.Name_Developer"
-    :LastName_Developer="Developer!.LastName_Developer" Job_Developer="Web Developer" />
-  <DeveloperDescriptionComponent v-if="Loading" Description_Developer="Loading..." />
-  <DeveloperDescriptionComponent v-else-if="ErrorMessage" :Description_Developer="ErrorMessage" />
-  <DeveloperDescriptionComponent v-else :Description_Developer="Developer!.Description_Developer" />
+  <div class="HomeViewContent">
+    <div class="DeveloperInformation" v-if="!Loading && !ErrorMessage">
+      <GrettingComponent />
+      <DeveloperNameComponent :Name_Developer="`${Developer!.Name_Developer} ${Developer!.LastName_Developer}`" />
+      <DeveloperJobComponent :Job_Developer="Job_Developer" />
+      <LineDecoratorComponent />
+      <DeveloperDescriptionComponent :Description_Developer="Description_Developer" />
+      <div class="HomeLinks">
+        <AboutButtonComponent />
+        <ContactButtonComponent />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
-//import DeveloperInfoComponent from '@/features/home/DeveloperInfoComponent.vue';
+import AboutButtonComponent from '@/features/home/AboutButtonComponent.vue';
+import ContactButtonComponent from '@/features/home/ContactButtonComponent.vue';
+import DeveloperDescriptionComponent from '@/features/home/DeveloperDescriptionComponent.vue';
+import DeveloperJobComponent from '@/features/home/DeveloperJobComponent.vue';
+import DeveloperNameComponent from '@/features/home/DeveloperNameComponent.vue';
+import GrettingComponent from '@/features/home/GrettingComponent.vue';
+import LineDecoratorComponent from '@/features/home/LineDecoratorComponent.vue';
 import { useDeveloperStore } from '@/stores/DeveloperStore';
 import { storeToRefs } from 'pinia';
-import DeveloperNameComponent from '@/features/home/DeveloperNameComponent.vue';
-import DeveloperDescriptionComponent from '@/features/home/DeveloperDescriptionComponent.vue';
+import { ref } from 'vue';
+
+const Job_Developer = ref('Full Stack Developer')
+const Description_Developer = ref('I build exceptional and accessible digital experiences for the web. Specializing in creating modern, responsive applications with clean code and intuitive user interfaces.')
 
 const DEVELOPER_STORE = useDeveloperStore();
 const { Developer, Loading, ErrorMessage } = storeToRefs(DEVELOPER_STORE);
 </script>
+
+<style scoped>
+.HomeViewContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.DeveloperInformation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.HomeLinks {
+  display: flex;
+  justify-content: space-between;
+  gap: 5rem;
+}
+</style>
