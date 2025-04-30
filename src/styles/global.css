@@ -20,8 +20,12 @@
 body {
   height: 100vh;
   width: 100%;
-  background-color: var(--FirsColor);
   transition: 0.3s linear;
+  background-image: linear-gradient(
+    to bottom right,
+    var(--SixthColor),
+    #390155e6
+  );
 }
 
 body.LigthTheme {

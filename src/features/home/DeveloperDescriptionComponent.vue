@@ -1,23 +1,24 @@
 <template>
-    <p class="Description">{{ PROPS.Description_Developer }}</p>
+    <p class="DescriptionDeveloper">
+        {{ PROPS.Description_Developer }}
+    </p>
 </template>
 
 <script setup lang="ts">
 import { defineProps } from 'vue';
 
 const PROPS = defineProps<{
-    Description_Developer: string
+    Description_Developer: string,
 }>();
 </script>
 
 <style scoped>
-.Description {
-    color: var(--FourthColor);
-    width: 75%;
-    text-align: left;
-    margin-top: 3rem;
+.DescriptionDeveloper {
     font-size: 1.5rem;
-    font-weight: 500;
-    line-height: 2;
+    line-height:1.5;
+    color: var(--FifthColor);
+    margin-bottom: 2.5rem;
+    width: 75%;
+    text-align: center;
 }
 </style>
