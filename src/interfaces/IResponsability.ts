@@ -1,4 +1,4 @@
 export interface IResponsability {
-  Id_Responsibility: number;
-  Description_Responsibility: string;
+  Id_Responsability: number;
+  Description_Responsability: string;
 }
