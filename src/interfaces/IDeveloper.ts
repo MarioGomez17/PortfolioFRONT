@@ -1,6 +1,9 @@
 import { ICity } from "./ICity";
+import { IContactInformation } from "./IContactInformation";
+import { IControlVersion } from "./IControlVersion";
 import { IEducation } from "./IEducation";
 import { IExperience } from "./IExperience";
+import { IIdeAndTool } from "./IIdeAndTool";
 import { ILanguage } from "./ILanguage";
 import { IProgrammingLanguage } from "./IProgrammingLanguage";
 import { IProject } from "./IProject";
@@ -17,13 +20,18 @@ export interface IDeveloper {
   LinkedinUrl_Developer: string;
   GitHubName_Developer: string;
   GitHubUrl_Developer: string;
+  Role_Developer: string;
+  ShortProfile_Developer: string;
+  LongProfile_Developer: string;
   City_Developer: ICity;
-  Description_Developer: string;
   ProgrammingLanguages_Developer: Array<IProgrammingLanguage>;
   Technologies_Developer: Array<ITechnology>;
+  IdesAndTools_Developer: Array<IIdeAndTool>;
+  ControlsVersionDeveloper: Array<IControlVersion>;
+  Skills_Developer: Array<ISkill>;
   Languages_Developer: Array<ILanguage>;
   Education_Developer: Array<IEducation>;
-  Skills_Developer: Array<ISkill>;
   Projects_Developer: Array<IProject>;
   Experience_Developer: Array<IExperience>;
+  ContactsInformation_Developer: Array<IContactInformation>;
 }

@@ -10,6 +10,6 @@ export interface IExperience {
   DateEnd_Experience: Date;
   Role_Experience: IRole;
   Company_Experience: ICompany;
-  Experience_Responsibilities: IResponsability;
-  Experience_Achievements: IAchievement;
+  Experience_Responsibilities: Array<IResponsability>;
+  Experience_Achievements: Array<IAchievement>;
 }
