@@ -3,9 +3,9 @@
     <div class="DeveloperInformation" v-if="!Loading && !ErrorMessage">
       <GrettingComponent />
       <DeveloperNameComponent :Name_Developer="`${Developer!.Name_Developer} ${Developer!.LastName_Developer}`" />
-      <DeveloperJobComponent :Job_Developer="Job_Developer" />
+      <DeveloperJobComponent :Job_Developer="Developer!.Role_Developer" />
       <LineDecoratorComponent />
-      <DeveloperDescriptionComponent :Description_Developer="Description_Developer" />
+      <DeveloperDescriptionComponent :Description_Developer="Developer!.ShortProfile_Developer" />
       <div class="HomeLinks">
         <AboutButtonComponent />
         <ContactButtonComponent />
@@ -24,10 +24,6 @@ import GrettingComponent from '@/features/home/GrettingComponent.vue';
 import LineDecoratorComponent from '@/features/home/LineDecoratorComponent.vue';
 import { useDeveloperStore } from '@/stores/DeveloperStore';
 import { storeToRefs } from 'pinia';
-import { ref } from 'vue';
-
-const Job_Developer = ref('Full Stack Developer')
-const Description_Developer = ref('I build exceptional and accessible digital experiences for the web. Specializing in creating modern, responsive applications with clean code and intuitive user interfaces.')
 
 const DEVELOPER_STORE = useDeveloperStore();
 const { Developer, Loading, ErrorMessage } = storeToRefs(DEVELOPER_STORE);
