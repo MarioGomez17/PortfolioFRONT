@@ -6,7 +6,7 @@
         <TechnologyComponent v-for="ProgrammingLanguage in Developer.ProgrammingLanguages_Developer"
             :key="ProgrammingLanguage.Id_ProgrammingLanguage"
             :LogoTechnology="ProgrammingLanguage.Logo_ProgrammingLanguage"
-            :NameTechnology="ProgrammingLanguage.Name_ProgrammingLanguage" :DivisionTechnology="null"
+            :NameTechnology="ProgrammingLanguage.Name_ProgrammingLanguage" :DevelopmentAreaTechnology="null"
             :ProgrammingLanguageTechnology="null"
             :DescriptionTechnology="ProgrammingLanguage.Description_ProgrammingLanguage" />
     </div>
@@ -14,7 +14,7 @@
     <div v-if="!Loading && ErrorMessage == null" class="TechnologiesContainer">
         <TechnologyComponent v-for="Technology in Developer.Technologies_Developer" :key="Technology.Id_Technology"
             :LogoTechnology="Technology.Logo_Technology" :NameTechnology="Technology.Name_Technology"
-            :DivisionTechnology="Technology.Division_Technology.Name_Division"
+            :DevelopmentAreaTechnology="Technology.DevelopmentArea_Technology.Name_DevelopmentArea"
             :ProgrammingLanguageTechnology="Technology.ProgrammingLanguage_Technology.Logo_ProgrammingLanguage"
             :DescriptionTechnology="Technology.Description_Technology" />
     </div>

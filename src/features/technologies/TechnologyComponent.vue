@@ -4,22 +4,22 @@
             <IconInfoCircle class="InformationIcon" />
         </button>
         <img class="TechnologyLogo" :src="PROPS.LogoTechnology" :alt="`Logo de ${PROPS.NameTechnology}`" />
-        <p class="TitlePropertyTechnology" v-if="PROPS.DivisionTechnology">
+        <p class="TitlePropertyTechnology" v-if="PROPS.DevelopmentAreaTechnology">
             Name:
             <span class="PropertyTechnology">
                 {{ PROPS.NameTechnology }}
             </span>
         </p>
-        <p class="TitleNameProgrammingLanguage" v-if="!PROPS.DivisionTechnology">
+        <p class="TitleNameProgrammingLanguage" v-if="!PROPS.DevelopmentAreaTechnology">
             Name:
             <span class="PropertyTechnology">
                 {{ PROPS.NameTechnology }}
             </span>
         </p>
-        <p class="TitlePropertyTechnology" v-if="PROPS.DivisionTechnology">
-            Division:
+        <p class="TitlePropertyTechnology" v-if="PROPS.DevelopmentAreaTechnology">
+            Development Area:
             <span class="PropertyTechnology">
-                {{ PROPS.DivisionTechnology }}
+                {{ PROPS.DevelopmentAreaTechnology }}
             </span>
         </p>
         <p class="TitlePropertyTechnology" v-if="PROPS.ProgrammingLanguageTechnology">
@@ -46,7 +46,7 @@ var Temporizador: number;
 const PROPS = defineProps<{
     LogoTechnology: string;
     NameTechnology: string;
-    DivisionTechnology: string | null;
+    DevelopmentAreaTechnology: string | null;
     ProgrammingLanguageTechnology: string | null;
     DescriptionTechnology: string;
 }>();
