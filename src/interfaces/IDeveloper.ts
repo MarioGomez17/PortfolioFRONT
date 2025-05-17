@@ -27,7 +27,7 @@ export interface IDeveloper {
   ProgrammingLanguages_Developer: Array<IProgrammingLanguage>;
   Technologies_Developer: Array<ITechnology>;
   IdesAndTools_Developer: Array<IIdeAndTool>;
-  ControlsVersionDeveloper: Array<IControlVersion>;
+  ControlsVersion_Developer: Array<IControlVersion>;
   Skills_Developer: Array<ISkill>;
   Languages_Developer: Array<ILanguage>;
   Education_Developer: Array<IEducation>;
