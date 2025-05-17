@@ -13,8 +13,9 @@ const PROPS = defineProps<{
 
 <style scoped>
 .MainTitle {
-    color: var(--FourthColor);
+    color: var(--FifthColor);
     text-align: start;
-    font-size: 6rem;
+    font-size: 4rem;
+    margin-bottom: 2rem;
 }
 </style>
