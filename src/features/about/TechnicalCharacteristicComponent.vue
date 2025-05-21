@@ -21,7 +21,7 @@ const PROPS = defineProps<{
 }
 
 .PurpleCharacteristic {
-    --MainCharacteristicColor: var(--FirsColor);
+    --MainCharacteristicColor: var(--FirstColor);
     --SecondCharacteristicColor: var(--SecondColor);
     --TextCharacteristicColor: var(--FifthColor);
 }
