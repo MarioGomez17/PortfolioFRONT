@@ -1,15 +1,13 @@
 <template>
-  <div class="HomeViewContent">
-    <div class="DeveloperInformation" v-if="!Loading && !ErrorMessage">
-      <GrettingComponent />
-      <DeveloperNameComponent :Name_Developer="`${Developer!.Name_Developer} ${Developer!.LastName_Developer}`" />
-      <DeveloperJobComponent :Job_Developer="Developer!.Role_Developer" />
-      <LineDecoratorComponent />
-      <DeveloperDescriptionComponent :Description_Developer="Developer!.ShortProfile_Developer" />
-      <div class="HomeLinks">
-        <AboutButtonComponent />
-        <ContactButtonComponent />
-      </div>
+  <div class="HomeViewContent" v-if="!Loading && !ErrorMessage">
+    <GrettingComponent />
+    <DeveloperNameComponent :Name_Developer="`${Developer!.Name_Developer} ${Developer!.LastName_Developer}`" />
+    <DeveloperJobComponent :Job_Developer="Developer!.Role_Developer" />
+    <LineDecoratorComponent />
+    <DeveloperDescriptionComponent :Description_Developer="Developer!.ShortProfile_Developer" />
+    <div class="HomeLinks">
+      <AboutButtonComponent />
+      <ContactButtonComponent />
     </div>
   </div>
 </template>
@@ -32,15 +30,10 @@ const { Developer, Loading, ErrorMessage } = storeToRefs(DEVELOPER_STORE);
 <style scoped>
 .HomeViewContent {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
-}
-
-.DeveloperInformation {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  min-height: 100vh;
 }
 
 .HomeLinks {

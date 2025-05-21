@@ -2,7 +2,7 @@
 
 :root {
   --MainFont: "Afacad Flux", sans-serif;
-  --FirsColor: #390155;
+  --FirstColor: #390155;
   --SecondColor: #a356cc;
   --ThirdColor: #10947e;
   --FourthColor: #2bf9c5;
@@ -29,7 +29,7 @@ body {
 }
 
 body.LigthTheme {
-  --FirsColor: #390155;
+  --FirstColor: #390155;
   --SecondColor: #a356cc;
   --ThirdColor: #10947e;
   --FourthColor: #2bf9c5;

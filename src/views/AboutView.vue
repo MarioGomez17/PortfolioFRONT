@@ -1,29 +1,31 @@
 <template>
-  <MainTitleComponent Title="About Me" />
-  <div class="AboutInformationContainer">
-    <div class="PersonalInformationContainer" v-if="!Loading && !ErrorMessage">
-      <PersonalInformationComponent :Name_Developer="FULL_NAME_DEVELOPER" :City_Developer="CITY_DEVELOPER"
-        :Email_Developer="Developer.Email_Developer" :LinkedIn_Developer="Developer.LinkedinUrl_Developer"
-        :GitHub_Developer="Developer.GitHubUrl_Developer" />
-      <LanguagesComponent />
-    </div>
-    <div class="PersonalInformationContainer" v-if="!Loading && !ErrorMessage">
-      <ProfileComponent :ProfessionalProfile_Description="Developer.LongProfile_Developer" />
-    </div>
-    <div class="TechnicalInformation">
+  <div class="AboutViewContent">
+    <MainTitleComponent Title="About Me" />
+    <div class="AboutInformationContainer">
       <div class="PersonalInformationContainer" v-if="!Loading && !ErrorMessage">
-        <DevelopmentAreasComponent :DevelopmentArea_ProgrammingLanguages="Developer.ProgrammingLanguages_Developer"
-          :DevelopmentArea_Technologies="Developer.Technologies_Developer" />
+        <PersonalInformationComponent :Name_Developer="FULL_NAME_DEVELOPER" :City_Developer="CITY_DEVELOPER"
+          :Email_Developer="Developer.Email_Developer" :LinkedIn_Developer="Developer.LinkedinUrl_Developer"
+          :GitHub_Developer="Developer.GitHubUrl_Developer" />
+        <LanguagesComponent />
       </div>
-      <div class="TechnicalInformationSection">
+      <div class="PersonalInformationContainer" v-if="!Loading && !ErrorMessage">
+        <ProfileComponent :ProfessionalProfile_Description="Developer.LongProfile_Developer" />
+      </div>
+      <div class="TechnicalInformation">
         <div class="PersonalInformationContainer" v-if="!Loading && !ErrorMessage">
-          <IdesAndToolsComponent :IdesAndTools="Developer.IdesAndTools_Developer" />
+          <DevelopmentAreasComponent :DevelopmentArea_ProgrammingLanguages="Developer.ProgrammingLanguages_Developer"
+            :DevelopmentArea_Technologies="Developer.Technologies_Developer" />
         </div>
-        <div class="PersonalInformationContainer" v-if="!Loading && !ErrorMessage">
-          <VersionControlsComponent :VersionControls="Developer.ControlsVersion_Developer" />
-        </div>
-        <div class="PersonalInformationContainer" v-if="!Loading && !ErrorMessage">
-          <SkillsComponent :Skills="Developer.Skills_Developer" />
+        <div class="TechnicalInformationSection">
+          <div class="PersonalInformationContainer" v-if="!Loading && !ErrorMessage">
+            <IdesAndToolsComponent :IdesAndTools="Developer.IdesAndTools_Developer" />
+          </div>
+          <div class="PersonalInformationContainer" v-if="!Loading && !ErrorMessage">
+            <VersionControlsComponent :VersionControls="Developer.ControlsVersion_Developer" />
+          </div>
+          <div class="PersonalInformationContainer" v-if="!Loading && !ErrorMessage">
+            <SkillsComponent :Skills="Developer.Skills_Developer" />
+          </div>
         </div>
       </div>
     </div>
@@ -52,6 +54,12 @@ const CITY_DEVELOPER = ref(`${Developer.value.City_Developer.Name_City}, ${Devel
 </script>
 
 <style scoped>
+.AboutViewContent {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .AboutInformationContainer {
   display: flex;
   flex-direction: column;
