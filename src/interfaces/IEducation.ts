@@ -12,5 +12,5 @@ export interface IEducation {
   Academy_Education: IAcademy;
   EducationType_Education: IEducationType;
   EducationPlace_Education: IEducationPlace;
-  Achievements_Education: IEducationAchievement;
+  Achievements_Education: Array<IEducationAchievement>;
 }
