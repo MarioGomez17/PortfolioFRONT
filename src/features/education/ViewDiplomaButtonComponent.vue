@@ -1,31 +1,30 @@
 <template>
-    <button type="button" class="ViewDiplomaButton" @click="openModal = true">
+    <router-link :to="ROUTE" class="ViewDiplomaButton" target="_blank">
         <IconFileDescription />
         View Diploma
-    </button>
-    <div v-if="openModal" class="modal-overlay" @click.self="closeModal">
-        <div class="modal-content">
-            <button class="close-button" @click="closeModal">X</button>
-            <img :src="PROPS.Diploma_SRC" alt="Imagen grande" class="modal-image" />
-        </div>
-    </div>
-
+    </router-link>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
 import { defineProps } from 'vue';
 import { IconFileDescription } from '@tabler/icons-vue';
 
-const openModal = ref(false);
-
 const PROPS = defineProps<{
     Diploma_SRC: string;
+    Diploma_name: string;
+    Diploma_Academy: string;
+    Diploma_Date: string;
 }>();
 
-const closeModal = () => {
-    openModal.value = false;
-};
+const ROUTE = {
+    name: 'Diploma',
+    query: {
+        Diploma_SRC: PROPS.Diploma_SRC,
+        Diploma_name: PROPS.Diploma_name,
+        Diploma_Academy: PROPS.Diploma_Academy,
+        Diploma_Date: PROPS.Diploma_Date
+    }
+}
 </script>
 
 <style scoped>
@@ -43,6 +42,7 @@ const closeModal = () => {
     font-weight: 700;
     color: var(--FourthColor);
     cursor: pointer;
+    text-decoration: none;
     transition: .3s linear;
 }
 
@@ -51,40 +51,5 @@ const closeModal = () => {
     color: var(--FifthColor)
 }
 
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.modal-content {
-    position: relative;
-    max-height: 90vh;
-    overflow: auto;
-}
-
-.modal-image {
-    max-height: 90vh;
-    width: auto;
-    display: block;
-}
-
-.close-button {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    background: #fff;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: 0.3rem 0.6rem;
-    border-radius: 4px;
-    z-index: 10000;
-}
 </style>
