@@ -1,13 +1,17 @@
 <template>
-  <MainLayout>
+  <MainLayout v-if="ROUTE.meta.useLayout">
     <router-view />
   </MainLayout>
+  <router-view v-else />
 </template>
 
 <script setup lang="ts">
-import MainLayout from './layouts/MainLayout.vue';
 import { onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 import { useDeveloperStore } from './stores/DeveloperStore';
+import MainLayout from './layouts/MainLayout.vue';
+
+const ROUTE = useRoute();
 
 const DEVELOPER_STORE = useDeveloperStore();
 
