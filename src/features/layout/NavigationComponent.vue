@@ -203,7 +203,7 @@ import { IconMail } from '@tabler/icons-vue';
 
 @media (min-width: 1024px) and (max-width: 1600px) {
     .TextNavBarLink {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     .IconNavBarLink {
