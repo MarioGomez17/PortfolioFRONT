@@ -10,7 +10,10 @@
                     :CharacteristicEducation_Icon="IconBuildingBank" />
             </div>
             <div class="EducationListItemDegreeFile">
-                <ViewDiplomaButtonComponent :Diploma_SRC="PROPS.Education.DegreeFile_Education" />
+                <ViewDiplomaButtonComponent :Diploma_SRC="PROPS.Education.DegreeFile_Education"
+                    :Diploma_name="PROPS.Education.DegreeName_Education"
+                    :Diploma_Academy="PROPS.Education.Academy_Education.Name_Academy"
+                    :Diploma_Date="PROPS.Education.Date_Education" />
             </div>
         </div>
         <div class="EducationListItemLongInformation">

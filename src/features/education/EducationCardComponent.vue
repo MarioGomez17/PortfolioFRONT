@@ -17,7 +17,10 @@
         </div>
         <div class="SectionEducationCard">
             <div class="EducationCardDecorator"></div>
-            <ViewDiplomaButtonComponent :Diploma_SRC="PROPS.Education.DegreeFile_Education" />
+            <ViewDiplomaButtonComponent :Diploma_SRC="PROPS.Education.DegreeFile_Education"
+                :Diploma_name="PROPS.Education.DegreeName_Education"
+                :Diploma_Academy="PROPS.Education.Academy_Education.Name_Academy"
+                :Diploma_Date="PROPS.Education.Date_Education" />
         </div>
     </div>
 </template>
