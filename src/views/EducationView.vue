@@ -21,7 +21,7 @@ import LayoutSelectorComponent from '@/components/LayoutSelectorComponent.vue';
 const EDUCATION_LIST_LAYOUT = defineAsyncComponent(() => import('@/layouts/education/EducationListLayout.vue'))
 const EDUCATION_GRID_LAYOUT = defineAsyncComponent(() => import('@/layouts/education/EducationGridLayout.vue'))
 const VIEW_LAYOUT = ref<Component>(EDUCATION_LIST_LAYOUT);
-const ACTIVE_LAYOUT = ref('list')
+const ACTIVE_LAYOUT = ref('LIST')
 
 function onLayoutChange(Payload: { LayoutType_Emit: string; Component_Emit: Component; }) {
     ACTIVE_LAYOUT.value = Payload.LayoutType_Emit;
