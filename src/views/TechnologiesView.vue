@@ -1,54 +1,98 @@
 <template>
-    <MainTitleComponent Title="Technologies" />
-    <SecondTitleComponent
-        :Title="`programming languages used by ${Developer.Name_Developer} ${Developer.LastName_Developer}`" />
-    <div v-if="!Loading && ErrorMessage == null" class="TechnologiesContainer">
-        <TechnologyComponent v-for="ProgrammingLanguage in Developer.ProgrammingLanguages_Developer"
-            :key="ProgrammingLanguage.Id_ProgrammingLanguage"
-            :LogoTechnology="ProgrammingLanguage.Logo_ProgrammingLanguage"
-            :NameTechnology="ProgrammingLanguage.Name_ProgrammingLanguage" :DevelopmentAreaTechnology="null"
-            :ProgrammingLanguageTechnology="null"
-            :DescriptionTechnology="ProgrammingLanguage.Description_ProgrammingLanguage" />
-    </div>
-    <SecondTitleComponent :Title="`Technologies used by ${Developer.Name_Developer} ${Developer.LastName_Developer}`" />
-    <div v-if="!Loading && ErrorMessage == null" class="TechnologiesContainer">
-        <TechnologyComponent v-for="Technology in Developer.Technologies_Developer" :key="Technology.Id_Technology"
-            :LogoTechnology="Technology.Logo_Technology" :NameTechnology="Technology.Name_Technology"
-            :DevelopmentAreaTechnology="Technology.DevelopmentArea_Technology.Name_DevelopmentArea"
-            :ProgrammingLanguageTechnology="Technology.ProgrammingLanguage_Technology.Logo_ProgrammingLanguage"
-            :DescriptionTechnology="Technology.Description_Technology" />
+    <div class="TechnologiesViewContent" v-if="!Loading && !ErrorMessage">
+        <MainTitleComponent Title="Technologies" />
+        <div class="TitleButtonsContainer">
+            <SecondTitleComponent Title="Programming Languages" />
+            <LayoutSelectorComponent :ActiveLayout="PROGRAMMING_LANGUAGES_ACTIVE_LAYOUT"
+                :Layouts="PROGRAMMING_LANGUAGES_LAYOUT_OPTIONS" @change="onProgrammingLanguageLayoutChange" />
+        </div>
+        <component :is="PROGRAMMING_LANGUAGES_VIEW_LAYOUT"
+            :ProgrammingLanguages_Developer="Developer!.ProgrammingLanguages_Developer" />
+        <div class="TitleButtonsContainer TechnologiesContent">
+            <SecondTitleComponent Title="Technologies & Frameworks" />
+            <LayoutSelectorComponent :ActiveLayout="TECHNOLOGIES_ACTIVE_LAYOUT" :Layouts="TECHNOLOGIES_LAYOUT_OPTIONS"
+                @change="onTechnologiesLayoutChange" />
+        </div>
+        <component :is="TECHNOLOGIES_VIEW_LAYOUT" :Technologies_Developer="Developer!.Technologies_Developer" />
     </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
+import MainTitleComponent from '@/components/MainTitleComponent.vue';
+import { IconList } from '@tabler/icons-vue';
+import { IconGridDots } from '@tabler/icons-vue';
+import { ILayoutOption } from '@/interfaces/ILayoutOption';
 import { useDeveloperStore } from '@/stores/DeveloperStore';
 import { storeToRefs } from 'pinia';
-import TechnologyComponent from '@/features/technologies/TechnologyComponent.vue';
-import MainTitleComponent from '@/components/MainTitleComponent.vue';
+import { defineAsyncComponent, ref, type Component } from 'vue';
+import LayoutSelectorComponent from '@/components/LayoutSelectorComponent.vue';
 import SecondTitleComponent from '@/components/SecondTitleComponent.vue';
+
+const TECHNOLOGY_LIST_LAYOUT = defineAsyncComponent(() => import('@/layouts/technologies/TechnologyListLayout.vue'))
+const TECHNOLOGY_GRID_LAYOUT = defineAsyncComponent(() => import('@/layouts/technologies/TechnologyGridLayout.vue'))
+const PROGRAMMING_LANGUAGE_LIST_LAYOUT = defineAsyncComponent(() => import('@/layouts/technologies/ProgrammingLanguageListLayout.vue'))
+const PROGRAMMING_LANGUAGE_GRID_LAYOUT = defineAsyncComponent(() => import('@/layouts/technologies/ProgrammingLanguageGridLayout.vue'))
+
+const PROGRAMMING_LANGUAGES_VIEW_LAYOUT = ref<Component>(PROGRAMMING_LANGUAGE_LIST_LAYOUT);
+const TECHNOLOGIES_VIEW_LAYOUT = ref<Component>(TECHNOLOGY_LIST_LAYOUT);
+const PROGRAMMING_LANGUAGES_ACTIVE_LAYOUT = ref('LIST')
+const TECHNOLOGIES_ACTIVE_LAYOUT = ref('LIST')
+
+function onProgrammingLanguageLayoutChange(Payload: { LayoutType_Emit: string; Component_Emit: Component; }) {
+    PROGRAMMING_LANGUAGES_ACTIVE_LAYOUT.value = Payload.LayoutType_Emit;
+    PROGRAMMING_LANGUAGES_VIEW_LAYOUT.value = Payload.Component_Emit;
+}
+
+function onTechnologiesLayoutChange(Payload: { LayoutType_Emit: string; Component_Emit: Component; }) {
+    TECHNOLOGIES_ACTIVE_LAYOUT.value = Payload.LayoutType_Emit;
+    TECHNOLOGIES_VIEW_LAYOUT.value = Payload.Component_Emit;
+}
+
+const PROGRAMMING_LANGUAGES_LAYOUT_OPTIONS: ILayoutOption[] = [
+    {
+        Name_LayoutOption: 'LIST',
+        Icon_LayoutOption: IconList,
+        Component_LayoutOption: PROGRAMMING_LANGUAGE_LIST_LAYOUT,
+    },
+    {
+        Name_LayoutOption: 'GRID',
+        Icon_LayoutOption: IconGridDots,
+        Component_LayoutOption: PROGRAMMING_LANGUAGE_GRID_LAYOUT,
+    },
+];
+
+const TECHNOLOGIES_LAYOUT_OPTIONS: ILayoutOption[] = [
+    {
+        Name_LayoutOption: 'LIST',
+        Icon_LayoutOption: IconList,
+        Component_LayoutOption: TECHNOLOGY_LIST_LAYOUT,
+    },
+    {
+        Name_LayoutOption: 'GRID',
+        Icon_LayoutOption: IconGridDots,
+        Component_LayoutOption: TECHNOLOGY_GRID_LAYOUT,
+    },
+];
 
 const DEVELOPER_STORE = useDeveloperStore();
 const { Developer, Loading, ErrorMessage } = storeToRefs(DEVELOPER_STORE);
 </script>
 
 <style scoped>
-.MainTitle {
-    color: var(--FourthColor);
-    text-align: start;
-    font-size: 6rem;
-}
-
-.SecondTitle {
-    color: var(--ThirdColor);
-    text-align: start;
-    font-size: 3rem;
-    margin: 2rem;
-    margin-left: 0;
-}
-
-.TechnologiesContainer {
+.TechnologiesViewContent {
     display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+}
+
+.TitleButtonsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.TechnologiesContent {
+    margin-top: 2rem;
 }
 </style>
