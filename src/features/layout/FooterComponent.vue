@@ -3,16 +3,16 @@
         <section class="UpperSectionFooter">
             <article class="UpperArticleContent DeveloperInfoArticle">
                 <h4 class="UpperArticleTitle">
-                    {{ `${Developer.Name_Developer} ${Developer.LastName_Developer}` }}
+                    {{ `${Developer?.Name_Developer} ${Developer?.LastName_Developer}` }}
                 </h4>
                 <p class="DeveloperInfoDescription">
-                    {{ Developer.ShortProfile_Developer }}
+                    {{ Developer?.ShortProfile_Developer }}
                 </p>
                 <div class="DeveloperInfoSocialNetworks">
-                    <a :href="Developer.GitHubUrl_Developer" class="SocialNetworksLink" target="_blank">
+                    <a :href="Developer?.GitHubUrl_Developer" class="SocialNetworksLink" target="_blank">
                         <IconBrandGithub class="SocialNetworksIcon" />
                     </a>
-                    <a :href="Developer.LinkedinUrl_Developer" class="SocialNetworksLink" target="_blank">
+                    <a :href="Developer?.LinkedinUrl_Developer" class="SocialNetworksLink" target="_blank">
                         <IconBrandLinkedin class="SocialNetworksIcon" />
                     </a>
                 </div>
@@ -47,11 +47,11 @@
             </article>
             <article class="UpperArticleContent ContactInfoArticle">
                 <h4 class="UpperArticleTitle">
-                    ContactInformation
+                    Contact Information
                 </h4>
                 <div class="ContactInfoContent">
                     <IconMail class="ContactInfoIcon" />
-                    {{ Developer.Email_Developer }}
+                    {{ Developer!.Email_Developer }}
                 </div>
                 <div class="ContactInfoContent">
                     <IconMapPin class="ContactInfoIcon" />
@@ -65,7 +65,7 @@
         <div class="DivDecorator"></div>
         <section class="LowerSectionFooter">
             <p>
-                &copy; {{ currentYear }} - {{ `${Developer.Name_Developer} ${Developer.LastName_Developer}` }}. All
+                &copy; {{ currentYear }} - {{ `${Developer?.Name_Developer} ${Developer?.LastName_Developer}` }}. All
                 rights
                 reserved.
             </p>
@@ -96,7 +96,7 @@ var currentYear = new Date().getFullYear();
 
 const DEVELOPER_STORE = useDeveloperStore();
 const { Developer, Loading, ErrorMessage } = storeToRefs(DEVELOPER_STORE);
-const CITY_DEVELOPER = ref(`${Developer.value.City_Developer.Name_City}, ${Developer.value.City_Developer.Department_City.Name_Department}, ${Developer.value.City_Developer.Department_City.Country_Department.Name_Country}`)
+const CITY_DEVELOPER = ref(`${Developer.value?.City_Developer.Name_City}, ${Developer.value?.City_Developer.Department_City.Name_Department}, ${Developer.value?.City_Developer.Department_City.Country_Department.Name_Country}`)
 </script>
 
 <style scoped>
