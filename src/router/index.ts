@@ -4,8 +4,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "Home",
-    component: () =>
-      import(/* webpackChunkName: "Home" */ "../views/HomeView.vue"),
+    component: () => import("../views/HomeView.vue"),
     meta: {
       useLayout: true,
     },
@@ -13,8 +12,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/About",
     name: "About",
-    component: () =>
-      import(/* webpackChunkName: "About" */ "../views/AboutView.vue"),
+    component: () => import("../views/AboutView.vue"),
     meta: {
       useLayout: true,
       title: "ABOUT",
@@ -23,8 +21,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/Education",
     name: "Education",
-    component: () =>
-      import(/* webpackChunkName: "Education" */ "../views/EducationView.vue"),
+    component: () => import("../views/EducationView.vue"),
     meta: {
       useLayout: true,
       title: "EDUCATION",
@@ -33,10 +30,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/Technologies",
     name: "Technologies",
-    component: () =>
-      import(
-        /* webpackChunkName: "Technologies" */ "../views/TechnologiesView.vue"
-      ),
+    component: () => import("../views/TechnologiesView.vue"),
     meta: {
       useLayout: true,
       title: "TECHNOLOGIES",
@@ -45,8 +39,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/Projects",
     name: "Projects",
-    component: () =>
-      import(/* webpackChunkName: "Projects" */ "../views/ProjectsView.vue"),
+    component: () => import("../views/ProjectsView.vue"),
     meta: {
       useLayout: true,
       title: "PROJECTS",
@@ -55,10 +48,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/Experience",
     name: "Experience",
-    component: () =>
-      import(
-        /* webpackChunkName: "Experience" */ "../views/ExperienceView.vue"
-      ),
+    component: () => import("../views/ExperienceView.vue"),
     meta: {
       useLayout: true,
       title: "EXPERIENCE",
@@ -68,7 +58,7 @@ const routes: Array<RouteRecordRaw> = [
     path: "/Contact",
     name: "Contact",
     component: () =>
-      import(/* webpackChunkName: "Contact" */ "../views/ContactView.vue"),
+      import("../views/ContactView.vue"),
     meta: {
       useLayout: true,
       title: "CONTACT",
@@ -78,7 +68,7 @@ const routes: Array<RouteRecordRaw> = [
     path: "/Diploma",
     name: "Diploma",
     component: () =>
-      import(/* webpackChunkName: "Diploma" */ "../views/DiplomaView.vue"),
+      import("../views/DiplomaView.vue"),
     props: (route) => ({
       Diploma_SRC: route.query.Diploma_SRC,
       Diploma_name: route.query.Diploma_name,
