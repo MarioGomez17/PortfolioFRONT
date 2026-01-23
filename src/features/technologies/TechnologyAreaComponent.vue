@@ -6,7 +6,6 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { defineProps } from 'vue';
 
 const PROPS = defineProps<{
     IdArea: number;

@@ -8,7 +8,6 @@
 <script setup lang="ts">
 import ProgrammingLanguageCardComponent from '@/features/technologies/ProgrammingLanguageCardComponent.vue';
 import { IProgrammingLanguage } from '@/interfaces/IProgrammingLanguage';
-import { defineProps } from 'vue';
 
 const PROPS = defineProps<{
     ProgrammingLanguages_Developer: Array<IProgrammingLanguage>;

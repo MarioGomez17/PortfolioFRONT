@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, ref } from 'vue';
+import { ref } from 'vue';
 import { IEducation } from '@/interfaces/IEducation';
 import { IconSchool } from '@tabler/icons-vue';
 import { IconCalendarWeek } from '@tabler/icons-vue';

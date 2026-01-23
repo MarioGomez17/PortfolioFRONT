@@ -5,8 +5,6 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps } from 'vue';
-
 const PROPS = defineProps<{
     Name: string;
 }>();

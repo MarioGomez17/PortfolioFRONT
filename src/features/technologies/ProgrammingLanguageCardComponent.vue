@@ -18,7 +18,6 @@
 
 <script lang="ts" setup>
 import { IProgrammingLanguage } from '@/interfaces/IProgrammingLanguage';
-import { defineProps } from 'vue';
 import TechnologyLogoComponent from './TechnologyLogoComponent.vue';
 import TechnologyNameComponent from './TechnologyNameComponent.vue';
 import TechnologyAreaComponent from './TechnologyAreaComponent.vue';

@@ -21,7 +21,6 @@
 
 <script lang="ts" setup>
 import { ITechnology } from '@/interfaces/ITechnology';
-import { defineProps } from 'vue';
 import TechnologyLogoComponent from './TechnologyLogoComponent.vue';
 import TechnologyNameComponent from './TechnologyNameComponent.vue';
 import TechnologyAreaComponent from './TechnologyAreaComponent.vue';

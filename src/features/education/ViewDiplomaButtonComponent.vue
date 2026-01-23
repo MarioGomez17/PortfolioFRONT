@@ -6,7 +6,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue';
 import { IconFileDescription } from '@tabler/icons-vue';
 
 const PROPS = defineProps<{

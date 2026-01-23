@@ -8,7 +8,6 @@
 <script setup lang="ts">
 import TechnologyCardComponent from '@/features/technologies/TechnologyCardComponent.vue';
 import { ITechnology } from '@/interfaces/ITechnology';
-import { defineProps } from 'vue';
 
 const PROPS = defineProps<{
     Technologies_Developer: Array<ITechnology>;

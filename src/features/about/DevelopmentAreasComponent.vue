@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, ref } from 'vue';
+import { ref } from 'vue';
 import SecondTitleComponent from '@/components/SecondTitleComponent.vue';
 import DevelopmentAreaComponent from './DevelopmentAreaComponent.vue';
 import { IProgrammingLanguage } from '@/interfaces/IProgrammingLanguage';

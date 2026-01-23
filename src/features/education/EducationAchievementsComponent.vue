@@ -12,7 +12,6 @@
 
 <script setup lang="ts">
 import { IEducationAchievement } from '@/interfaces/IEducationAchievement';
-import { defineProps } from 'vue';
 
 const PROPS = defineProps<{
     Achievements_Education: Array<IEducationAchievement>;

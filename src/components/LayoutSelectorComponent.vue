@@ -11,7 +11,6 @@
 <script setup lang="ts">
 import { ILayoutOption } from '@/interfaces/ILayoutOption';
 import type { Component } from 'vue';
-import { defineProps, defineEmits } from 'vue';
 
 
 const PROPS = defineProps<{

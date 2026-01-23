@@ -7,7 +7,6 @@
 
 <script setup lang="ts">
 import { Icon } from '@tabler/icons-vue';
-import { defineProps } from 'vue';
 
 const PROPS = defineProps<{
     Text_Button: string;

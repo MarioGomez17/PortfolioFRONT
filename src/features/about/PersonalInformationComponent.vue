@@ -26,7 +26,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue';
 import { IconUserCircle } from '@tabler/icons-vue';
 import { IconMapPin } from '@tabler/icons-vue';
 import { IconMail } from '@tabler/icons-vue';

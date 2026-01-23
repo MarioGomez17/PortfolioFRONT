@@ -8,7 +8,6 @@
 <script setup lang="ts">
 import EducationListItemComponent from '@/features/education/EducationListItemComponent.vue';
 import { IEducation } from '@/interfaces/IEducation';
-import { defineProps } from 'vue';
 
 const PROPS = defineProps<{
     Educations_Developer: Array<IEducation>;

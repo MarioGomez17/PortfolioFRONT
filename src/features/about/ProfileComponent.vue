@@ -9,7 +9,6 @@
 
 <script setup lang="ts">
 import SecondTitleComponent from '@/components/SecondTitleComponent.vue';
-import { defineProps } from 'vue';
 
 const PROPS = defineProps<{
     ProfessionalProfile_Description: string,

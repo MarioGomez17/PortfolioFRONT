@@ -14,7 +14,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue';
 import { IProgrammingLanguage } from '@/interfaces/IProgrammingLanguage';
 import { ITechnology } from '@/interfaces/ITechnology';
 import TechnicalCharacteristicComponent from './TechnicalCharacteristicComponent.vue';

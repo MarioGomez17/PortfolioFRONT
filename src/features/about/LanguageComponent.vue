@@ -10,7 +10,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue';
 
 const PROPS = defineProps<{
     Language_Name: string,

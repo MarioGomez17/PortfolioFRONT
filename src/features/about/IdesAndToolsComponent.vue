@@ -11,7 +11,6 @@
 <script setup lang="ts">
 import SecondTitleComponent from '@/components/SecondTitleComponent.vue';
 import { IIdeAndTool } from '@/interfaces/IIdeAndTool';
-import { defineProps } from 'vue';
 import TechnicalCharacteristicComponent from './TechnicalCharacteristicComponent.vue';
 const PROPS = defineProps<{
     IdesAndTools: Array<IIdeAndTool>;

@@ -12,7 +12,6 @@
 <script setup lang="ts">
 import SecondTitleComponent from '@/components/SecondTitleComponent.vue';
 import { IControlVersion } from '@/interfaces/IControlVersion';
-import { defineProps } from 'vue';
 import TechnicalCharacteristicComponent from './TechnicalCharacteristicComponent.vue';
 
 const PROPS = defineProps<{

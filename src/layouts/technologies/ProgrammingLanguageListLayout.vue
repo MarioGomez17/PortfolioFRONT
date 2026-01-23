@@ -8,7 +8,6 @@
 <script setup lang="ts">
 import ProgrammingLanguageListItemComponent from '@/features/technologies/ProgrammingLanguageListItemComponent.vue';
 import { IProgrammingLanguage } from '@/interfaces/IProgrammingLanguage';
-import { defineProps } from 'vue';
 
 const PROPS = defineProps<{
     ProgrammingLanguages_Developer: Array<IProgrammingLanguage>;

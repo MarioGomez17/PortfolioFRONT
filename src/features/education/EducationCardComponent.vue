@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, ref } from 'vue';
+import { ref } from 'vue';
 import { IEducation } from '@/interfaces/IEducation';
 import { IconCalendarWeek } from '@tabler/icons-vue';
 import { IconBuildingBank } from '@tabler/icons-vue';
