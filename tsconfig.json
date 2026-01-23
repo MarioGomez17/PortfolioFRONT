@@ -12,6 +12,7 @@
     "useDefineForClassFields": true,
     "sourceMap": true,
     "baseUrl": ".",
+    "typeRoots": ["node_modules/@types", "node_modules/vue/types"],
     "types": ["vite/client", "vue/macros-global"],
     "paths": {
       "@/*": ["src/*"]
